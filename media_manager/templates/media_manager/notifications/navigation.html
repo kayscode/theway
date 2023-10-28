@@ -1,0 +1,9 @@
+<div class="flex justify-between">
+    <p class="font-semibold">
+        > {{ ui_name }}
+    </p>
+    <div class="space-x-2">
+        <a  class="px-4 py-2 bg-blue-50 hover:bg-blue-300 font-semibold rounded-md" href={% url "list_notification" "media" %} >media</a>
+        <a  class="px-4 py-2 bg-blue-50 hover:bg-blue-300 font-semibold rounded-md" href={% url "list_notification" "source" %} >source</a>
+    </div>
+</div>

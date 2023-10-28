@@ -1,0 +1,41 @@
+{% extends "layouts/app.html" %}
+
+{% block title %}
+    media
+{% endblock title %}
+
+{% block main %}
+    {% include "media_manager/media/navigation.html" with ui_name="detail video" %}
+    <div class="grid grid-cols-1 space-y-3">
+            {% if source is not None %}
+                <div>source media</div>
+            {% elif media is not None %}
+                {% if media.media_type == "audio" %}
+                    <div> audio </div>
+                {% elif media.media_type == "video" %}
+                    <div class="flex justify-center">
+                        <video  autoplay height="400" width="600" controls class="border rounded-md"  type="video/mp4">
+                            <source src="{{ media.file.url }}" type="video/mp4">
+                        </video>
+                    </div>
+                {% endif %}
+
+            {% endif %}
+            {# actions #}
+            <div class="flex justify-center p-5 border rounded-lg ">
+                <form action="{% url 'accept_notification' notification_type notification.id %}" class="px-2" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit" class="px-5 py-2 text-blue-500 bg-blue-50 text-center rounded-sm hover:bg-blue-500 hover:text-white">
+                        accepter
+                    </button>
+                </form>
+                 <form action="{% url 'reject_notification' notification_type notification.id %}" class="px-2" method="post">
+                     {{ form }}
+                    <button type="submit" class="px-3 py-2 text-red-500 bg-red-50 text-center rounded-sm hover:bg-red-500 hover:text-white">
+                        refuser
+                    </button>
+                </form>
+            </div>
+        </div>
+{% endblock %}

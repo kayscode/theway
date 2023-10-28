@@ -1,0 +1,11 @@
+<div class="flex justify-between">
+    <p class="font-semibold">
+        > {{ ui_name }}
+    </p>
+    <div class="space-x-2">
+        <a  class="px-4 py-2 bg-blue-50 hover:bg-blue-300 font-semibold rounded-md" href={% url "organisation_list" %} >branches </a>
+        <a  class="px-4 py-2 bg-blue-50 hover:bg-blue-300 font-semibold  rounded-md" href={% url "country_list" %} > pays </a>
+        <a  class="px-4 py-2 bg-blue-50 hover:bg-blue-300 font-semibold  rounded-md" href={% url "create_organisation" %} > créer branche </a>
+        <a  class="px-4 py-2 bg-blue-50 hover:bg-blue-300 font-semibold  rounded-md" href={% url "create_country" %}> créer pays </a>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+{% extends "layouts/site-layout.html" %}
+{% load static %}
+
+{% block css_links %}
+    <link rel="stylesheet" href={% static "css/app.css" %}>
+{% endblock css_links %}
+
+{% block content %}
+    <main class="container py-5">
+            <div class="flex justify-center items-center">
+                <div class="p-5 rounded-lg w-5/12 border">
+                    <h1 class="text-xl font-semibold text-center text-green-500 py-2 border-b"> se connecter </h1>
+                    {% if error %}
+                        <p class="bg-red-50 text-red-500 p-2 rounded-lg mt-2"> user doesn't exist</p>
+                    {% endif %}
+                    <form action="{% url 'auth_login' %}" class="text-gray-700 space-y-5 py-1" method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="grid grid-cols-1 gap-3">
+                                {{ field.label }}
+                                {{ field }}
+                                {% if field.errors %}
+                                    {% for error in field.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        <div class="text-center">
+                            <button type="submit" class="px-3 py-2 text-green-500 bg-green-50 rounded-lg hover:bg-green-500 hover:text-white">
+                                se connecter
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+{% endblock content %}

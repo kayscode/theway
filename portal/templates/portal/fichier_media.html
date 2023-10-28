@@ -1,0 +1,38 @@
+{% extends "layouts/site-layout.html" %}
+{% load static %}
+
+{% block css_links %}
+    <link rel="stylesheet" href={% static "css/app.css" %}>
+{% endblock css_links %}
+
+{% block content %}
+    <div class="flex justify-center items-center" style="height: 600px">
+        {% if media.media_type == "audio" %}
+            <div class="flex justify-center">
+                <div class="space-y-3">
+                    <p class=" rounded-md font-bold text-center py-3 bg-gray-50 text-gray-700">{{ media.title }} (by {{ media.organisation.name }} )</p>
+                    <div class="flex justify-center">
+                        {% if media.file_cover %}
+                            <img src='{{ media.file_cover.url }} ' style="height:400px;width: 800px" class="object-cover rounded-lg" >
+                        {% else %}
+                            <img src="{% static 'images/audio.jpg' %}" style="height:400px;width: 800px" class="object-cover rounded-lg" >
+                        {% endif %}
+                    </div>
+                    <audio controls class="w-full">
+                        <source class="" src="{{ media.file.url }}">
+                    </audio>
+                </div>
+            </div>
+        {% elif media.media_type == "video" %}
+
+            <div class="space-y-3">
+                <p class=" rounded-md font-bold text-center py-3 bg-gray-50 text-gray-700">{{ media.title }} (by {{ media.organisation.name }} )</p>
+                <div class="flex justify-center">
+                    <video  autoplay height="600" width="800" controls class="border rounded-md"  type="video/mp4">
+                        <source src="{{ media.file.url }}" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock content %}

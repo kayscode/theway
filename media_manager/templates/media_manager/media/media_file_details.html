@@ -1,0 +1,51 @@
+{% extends "layouts/app.html" %}
+{% load static %}
+
+
+{% block title %}
+    media
+{% endblock title %}
+
+{% block main %}
+    {% include "media_manager/media/navigation.html" with ui_name=" detail fichier media" %}
+    <div class="grid grid-cols-1 space-y-3">
+        <p class=" rounded-md font-bold text-center py-3 bg-gray-50 text-gray-700">{{ media.title }} (by {{ media.organisation.name }} )</p>
+                {% if media.media_type == "audio" %}
+                    <div class="flex justify-center">
+                        <div class="w-6/12">
+                            <div class="flex justify-center">
+                                {% if media.file_cover %}
+                                    <img src='{{ media.file_cover.url }} ' style="height:300px;" class="object-cover" >
+                                {% else %}
+                                    <img src="{% static 'images/audio.jpg' %}" style="height:300px;" class="object-cover" >
+                                {% endif %}
+                            </div>
+                            <audio controls class="w-full">
+                                <source class="" src="{{ media.file.url }}">
+                            </audio>
+                        </div>
+                    </div>
+                {% elif media.media_type == "video" %}
+                    <div class="flex justify-center">
+                        <video  autoplay height="400" width="600" controls class="border rounded-md"  type="video/mp4">
+                            <source src="{{ media.file.url }}" type="video/mp4">
+                        </video>
+                    </div>
+                {% endif %}
+            {# actions #}
+            <div class="flex justify-center p-5 border rounded-lg ">
+                <a href="{% url 'edit_media' media.id %}" class="px-5 py-2 text-blue-500 bg-blue-50 text-center rounded-sm hover:bg-blue-500 hover:text-white"> modifier </a>
+                 <form action="{% url 'delete_media' media.id %}" class="px-2" method="post">
+                     {%  csrf_token %}
+                     {% for field in form %}
+                         {% if field.is_hidden %}
+                             {{ field }}
+                         {% endif %}
+                     {% endfor %}
+                    <button type="submit" class="px-3 py-2 text-red-500 bg-red-50 text-center rounded-sm hover:bg-red-500 hover:text-white">
+                        supprimer
+                    </button>
+                </form>
+            </div>
+        </div>
+{% endblock %}

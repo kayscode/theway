@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "css/app.css" %}>
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+</head>
+<body>
+    <div class="h-screen grid grid-cols-12 bg-blue-50 text-gray-600">
+        <div class="col-span-3">
+            <div class="py-3  text-center text-2xl font-bold"> Centimedia</div>
+            <div class=" flex-1 space-y-3 px-10 py-4">
+                <a  class="block p-2   rounded-lg hover:bg-blue-200 font-semibold " href={% url "dashboard"  %}> main </a>
+                <a  class="block p-2  hover:bg-blue-200  font-semibold rounded-lg " href={% url "list_media" %} > fichier media </a>
+                <a  class="block p-2   hover:bg-blue-200   font-semibold rounded-lg" href={% url "list_source" %} > source media</a>
+                {% if request.user.is_super_admin %}
+                    <a  class="block p-2   hover:bg-blue-200  font-semibold rounded-lg " href={% url "organisation_list" %} > branches </a>
+                    <a  class="block p-2   hover:bg-blue-200   font-semibold rounded-lg " href={% url "user_list" %} > utilisateurs</a>
+                    <a  class="block p-2   hover:bg-blue-200   font-semibold rounded-lg " href={% url "list_notification" "media" %}> notifications</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-span-9 h-full ">
+            <div class="flex flex-col h-full">
+                <div class="py-3 px-2 flex justify-between items-center">
+                    <strong>
+                        {{ request.user.username}}
+                    </strong>
+                    <a class="px-3 py-2 rounded-sm bg-red-400 text-white font-semibold hover:bg-red-600" href={% url "auth_logout" %}>
+                        logout
+                    </a>
+                </div>
+                <div class="flex-1 p-1">
+                    <div class="flex flex-col bg-white rounded-md p-3 gap-y-3 " style="height: 600px">
+                        {% block main %}
+                        {% endblock main %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

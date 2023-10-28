@@ -1,0 +1,63 @@
+{% extends "layouts/app.html" %}
+
+{% block title %}
+    notifications
+{% endblock title %}
+
+{% block main %}
+    {% include "media_manager/notifications/navigation.html" with ui_name=notification_type %}
+    <div class="bg-gray-50 rounded-lg p-2 flex justify-end">
+        <form action="" class="flex gap-2">
+            <div>
+                <label for=""></label>
+                <select name="" id="" class="px-10 py-1 rounded-lg border focus:outline-none focus:outline-gray-300 ">
+                    <option value="">none</option>
+                    <option value="">en attente</option>
+                    <option value="">accepter</option>
+                    <option value="">rejeter</option>
+                </select>
+            </div>
+            <div>
+                <button class="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-semibold px-3 py-1 rounded-lg bg-white">
+                    filtrer
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="py-4 overflow-y-auto" style="height:550px;">
+        <div class="grid grid-cols-1 gap-3">
+            <div class="">
+                {% if notifications|length > 0 %}
+                    {% for notification in notifications %}
+                        <div class="shadow-sm p-2 grid grid-cols-4 rounded-md items-center gap-2 space-y-2 ">
+                            <div class="col-span-3 grid grid-cols-4 items-center gap-x-2">
+
+                                <span> {{ notification.notification.sent_date }} </span>
+                                {% if notification.notification.status == "pending"  %}
+                                    <span class="text-yellow-400"> en attente </span>
+                                {% elif notification.notification.status == "rejected"  %}
+                                    <span class="text-red-500"> rejeter </span>
+                                {% elif notification.notification.status == "accepted"  %}
+                                    <span class="text-green-500"> accepter </span>
+                                {% endif %}
+                                <span class="col-span-2"> {{ notification.notification.description}} <strong> : {{ notification.notification.media.title }} </strong> </span>
+                            </div>
+                            <div class="flex justify-end gap-2">
+                                <a href="{% url 'show_notification' notification_type notification.notification.id %}" class="px-5 py-2 text-blue-500 bg-blue-50 text-center rounded-sm hover:bg-blue-500 hover:text-white"> voir </a>
+                                <form action="">
+                                    <button class="px-3 py-2 text-red-500 bg-red-50 text-center rounded-sm hover:bg-red-500 hover:text-white">
+                                        refuser
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                {% endfor %}
+                {% else %}
+                    <div class="p-5 bg-gray-50 text-center">
+                        pas de notifications {{ notification_type }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

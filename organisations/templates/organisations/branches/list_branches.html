@@ -1,0 +1,39 @@
+{% extends "layouts/app.html" %}
+
+{% block title %}
+    branches
+{% endblock title %}
+
+{% block main %}
+    {% include "organisations/branches/navigation.html" with ui_name="listes des branches" %}
+    <div class="space-y-2">
+         <div class="grid grid-cols-5 bg-blue-50 p-2 items-center font-semibold">
+                <div class="col-span-3 grid grid-cols-4 ">
+                    <span class="col-span-2"> email </span>
+                    <span class=col-span-2"> nom de la branche </span>
+
+                </div>
+                <div class="col-span-2 flex justify-center items-center gap-2">
+                    <span> actions </span>
+                </div>
+            </div>
+        {% for branche in branches %}
+            <div class="grid grid-cols-5 border rounded-lg p-2 items-center">
+                <div class="col-span-3 grid grid-cols-4 ">
+                    <span class="col-span-2"> {{ branche.email}} </span>
+                    <span class=col-span-2"> {{ branche.name }} </span>
+
+                </div>
+                <div class="col-span-2 flex justify-center items-center gap-2">
+                    <a href="" class="flex-1 px-3 py-2 text-blue-500 bg-blue-50 text-center rounded-sm hover:bg-blue-500 hover:text-white"> voir </a>
+                    <a href="" class="flex-1 px-3 py-2 text-blue-500 bg-blue-50 text-center rounded-sm hover:bg-blue-500 hover:text-white" > editer </a>
+                    <form action="" class="flex-1 bg-gray-100">
+                        <button class="w-full px-3 py-2 text-red-500 bg-red-50 text-center rounded-sm hover:bg-red-500 hover:text-white">
+                            supprimer
+                        </button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

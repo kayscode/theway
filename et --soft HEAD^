@@ -1,0 +1,120 @@
+[33mcommit 618447503aded0c48beac401cd9caf935e958c9f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sun Oct 22 13:17:27 2023 +0200
+
+    integration ui notifications and backend logic, media crud
+
+[33mcommit 72a399449058a9582ed2abf8a44452c56d7960ef[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Wed Oct 18 22:54:56 2023 +0200
+
+    connect url endpoint to render correct templates
+
+[33mcommit d509638722d56fa886239d36d7e70b2a8f18253e[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Mon Oct 16 22:56:48 2023 +0200
+
+    create template file, and integrate partially template to user views
+
+[33mcommit 7b301bd8ef67f0f7c4413eae5c49c461289282ed[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sun Oct 15 17:49:17 2023 +0200
+
+    intragate part 1
+
+[33mcommit 32a4459c074f1666d8b8fe657269e069a0534908[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sat Oct 14 18:22:00 2023 +0200
+
+    create source media view and related functionality
+
+[33mcommit 06b145e42a169cf37a55870f4a18a01a00d5498b[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sat Oct 14 15:01:57 2023 +0200
+
+    fixing media manager forms, to fit for manager and admin user
+
+[33mcommit 41bf2c4f501c6ae3cf5e82fbc2aa167fe2b5e8aa[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sat Oct 14 14:38:50 2023 +0200
+
+    register media_manager to settings and fix models id fiels
+
+[33mcommit 2d04fda0e840b4bb9de945dd373ce334602208d2[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sat Oct 14 14:35:22 2023 +0200
+
+    consider all modifications
+
+[33mcommit 0edd773b00da03051019df9bbfaf6a5c2bb6213a[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Fri Oct 13 04:14:14 2023 +0200
+
+    in create and udate function, add new fields cover and email
+
+[33mcommit 115734e73709557bc53f04dcc688123feab2c8ba[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Fri Oct 13 04:12:51 2023 +0200
+
+    fix how utils features use repostories
+
+[33mcommit 978a14866cc7b2249ee198c13ff6c35ff14f65d9[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Fri Oct 13 04:04:42 2023 +0200
+
+    fixing user, organisations, and country repositories
+
+[33mcommit 472e51b3e3aec3e2fea73ea8b0c5d1c76b8f0301[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sun Oct 8 13:11:25 2023 +0200
+
+    intergrate tailwindcss to django
+
+[33mcommit 188ac5e9477b601d4b674251c195f580d5805c17[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sun Oct 8 08:34:24 2023 +0200
+
+    fixing authentication issues 1
+
+[33mcommit b57c9999eeadec6086c78af9eec875a2302cd4d7[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sun Oct 8 07:05:32 2023 +0200
+
+    add auth urls to the projects urls
+
+[33mcommit d5e27af1052caca8224a96f7f33ec63b1eb8ebad[m
+Merge: c9e88a2 a273d89
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sun Oct 8 07:03:06 2023 +0200
+
+    intergrate authentication change to the main project
+
+[33mcommit a273d8991af0b8d075a71894ab9a93609fa71543[m[33m ([m[1;32mauthentication[m[33m)[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sun Oct 8 07:01:35 2023 +0200
+
+    create auth urls
+
+[33mcommit 9d5c68f143879b99ce90ecb12d10e5de9ef60b59[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sun Oct 8 06:56:44 2023 +0200
+
+    make auth  views to render template
+
+[33mcommit c9e88a2d37c347cc70dd1af881c4721d382836e0[m[33m ([m[1;32muser_administration[m[33m)[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sun Oct 8 06:22:46 2023 +0200
+
+    add user manager to manage user database interaction
+
+[33mcommit b24d6430f444d50de706a586e6bcc8ae318af1f1[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sat Oct 7 20:26:35 2023 +0200
+
+    adding views and creating login and logout form
+
+[33mcommit 672e2c9a85ed3553d91ab72103f63a63dac1e14d[m
+Author: samy kayembe <samy.k.bajikile@gmail.com>
+Date:   Sat Oct 7 15:49:23 2023 +0200
+
+    iniatialization of the entire project

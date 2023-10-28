@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static 'css/app.css' %}>
+    <title>Document</title>
+</head>
+<body>
+    <div class="h-screen grid grid-cols-12 bg-blue-50 text-gray-600 p-2">
+        <div class="col-span-3">
+            <div class="py-3  text-center text-2xl font-bold"> Centimedia</div>
+             <div class=" flex-1 space-y-3 px-10 py-4">
+                <a  class="block p-2   rounded-lg hover:bg-blue-200 font-semibold " href={% url "dashboard"  %}> main </a>
+                <a  class="block p-2  hover:bg-blue-200  font-semibold rounded-lg " href={% url "list_media" %} > fichier media </a>
+                <a  class="block p-2   hover:bg-blue-200   font-semibold rounded-lg" href={% url "list_source" %} > source media</a>
+                 {% if user.is_super_admin %}
+                    <a  class="block p-2   hover:bg-blue-200  font-semibold rounded-lg " href={% url "organisation_list" %} > branches </a>
+                    <a  class="block p-2   hover:bg-blue-200   font-semibold rounded-lg " href={% url "user_list" %} > utilisateurs</a>
+                    <a  class="block p-2   hover:bg-blue-200   font-semibold rounded-lg " href={% url "list_notification" "media" %}> notifications</a>
+                 {% endif %}
+            </div>
+        </div>
+        <div class="col-span-9 h-full ">
+            <div class="flex h-full bg-white rounded-lg p-5 justify-center items-center">
+                <div class="w-6/12 grid grid-cols-2 gap-2">
+                    <a class="p-5 block border rounded-lg text-center font-semibold hover:bg-blue-200" href={% url "list_media" %}> fichier media </a>
+                    <a class="p-5 block border rounded-lg text-center font-semibold hover:bg-blue-200" href={% url "list_source" %}> source media </a>
+                    {% if user.is_super_admin %}
+                        <a class="p-5 block border rounded-lg text-center font-semibold hover:bg-blue-200" href={% url "organisation_list" %}> branches </a>
+                        <a class="p-5 block border rounded-lg text-center font-semibold hover:bg-blue-200" href={% url "list_notification" "media" %} > notifications </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

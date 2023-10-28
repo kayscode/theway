@@ -1,0 +1,41 @@
+{% extends "layouts/app.html" %}
+
+{% block title %}
+    users
+{% endblock title %}
+
+{% block main %}
+    {% include "organisations/users/navigation.html" with ui_name="modifier un utilisateur" %}
+    <div class="overflow-y-auto" style="height:550px;">
+        <div class="flex justify-center items-center">
+            <div class="p-5 rounded-lg w-10/12 border">
+                <h1 class="text-xl font-semibold text-center text-green-500 py-2 border-b"> créer pays </h1>
+                <form action="{% url 'update_user' user_id  %}" class="text-gray-700 space-y-2 py-3" enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+
+                    <div class="grid grid-cols-2 gap-3">
+                        {% for field in form %}
+                            <div class="grid grid-cols-1 gap-2">
+                                {% if field.is_hidden == False %}
+                                    {{ field.label }}
+                                {% endif %}
+
+                                {{ field }}
+                                {% if field.errors %}
+                                    {% for error in field.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="text-center py-2">
+                        <button type="submit" class="font-bold px-10 py-2 text-green-500 bg-green-50 rounded-lg hover:bg-green-500 hover:text-white">
+                            modifier
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
